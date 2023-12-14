@@ -22,14 +22,14 @@ import numpy as np
 
 from agents import *
 
-os.system("taskset -p -c 0 %d" % (os.getpid()))
+# os.system("taskset -p -c 0 %d" % (os.getpid()))
 
-os.system("taskset -p 0xFFFFFFFF %d" % (os.getpid()))
+# os.system("taskset -p 0xFFFFFFFF %d" % (os.getpid()))
 # os.system("taskset -p -c 0-7,16-23 %d" % (os.getpid()))
 # os.system("taskset -p -c 8-15,24-31 %d" % (os.getpid()))
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 def main():
     # parse the path of the json config file

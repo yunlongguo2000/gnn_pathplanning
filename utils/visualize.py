@@ -25,10 +25,10 @@ class Animation:
 
         self.config = config
         with open(config.map) as map_file:
-            self.data_map = yaml.load(map_file)
+            self.data_map = yaml.safe_load(map_file)
 
         with open(config.schedule) as states_file:
-            self.schedule = yaml.load(states_file)
+            self.schedule = yaml.safe_load(states_file)
 
         self.num_agents = len(self.data_map["agents"])
         self.K = self.config.nGraphFilterTaps
