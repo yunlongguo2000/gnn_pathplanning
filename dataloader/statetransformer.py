@@ -126,7 +126,12 @@ class AgentState:
             input_step_currentAgent.append(channel_state)
             input_step.append(input_step_currentAgent)
 
-        input_tensor = torch.FloatTensor(input_step)
+        # input_tensor = torch.FloatTensor(input_step)
+        # 先将列表转换为numpy数组
+        input_step_np = np.array(input_step)
+
+        # 然后将numpy数组转换为张量
+        input_tensor = torch.FloatTensor(input_step_np)
         return input_tensor
 
 
@@ -183,5 +188,7 @@ class AgentState:
                 input_step.append(input_step_currentAgent)
             list_input.append(input_step)
 
-        input_tensor = torch.FloatTensor(list_input)
+        # input_tensor = torch.FloatTensor(list_input)
+        input_tensor_np = np.array(list_input)
+        input_tensor = torch.FloatTensor(input_tensor_np)
         return input_tensor

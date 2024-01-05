@@ -3,9 +3,9 @@
   "agent": "DecentralPlannerAgentLocalWithOnlineExpert",
   "data_loader": "DecentralPlannerDataLoader",
 
-  "data_root": "/local/scratch/ql295/Data/MultiAgentDataset/DataSource_DMap/",
-  "save_data": "/local/scratch/ql295/Data/MultiAgentDataset/",
-  "save_tb_data": "/local/scratch/ql295/Data/MultiAgentDataset/Tensorboard_CG50/",
+  "data_root": "/home/yunlong/gnn_pathplanning/data/",
+  "save_data": "/home/yunlong/gnn_pathplanning/",
+  "save_tb_data": "/home/yunlong/gnn_pathplanning/Tensorboard_CG50/",
 
   "map_w": 20,
   "map_h": 20,
