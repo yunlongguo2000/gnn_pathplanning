@@ -1,4 +1,5 @@
 *.mat
+*.pyc
 experiments/
 data/
 Tensorboard_CG50/
