@@ -87,10 +87,20 @@ class ComputeECBSSolution:
             name_inputfile = self.list_failureCases_input[id_case]
             id_input_case = name_inputfile.split('_ID')[-1]
             name_outputfile = self.dir_sol + 'failureCases_solved_ID{}'.format(id_input_case)
+            if not os.path.exists(name_outputfile):
+                with open(name_outputfile, 'w') as file:
+                    pass
+            # print("name_inputfile:", name_inputfile)
+            # print("name_outputfile:", name_outputfile)
+            # self.check_file(name_inputfile)
+            # self.check_file(name_outputfile)
+            # self.check_yaml(name_inputfile)
+            # self.check_yaml(name_outputfile)
             command_dir = dirname(realpath(__file__))
-            # print(command_dir)
+            # print("command_dir", command_dir)
             # command_dir = '/local/scratch/ql295/Data/Project/GraphNeural_Planner/onlineExpert'
             command_file = os.path.join(command_dir, "ecbs")
+            # print("command_file:", command_file)
             # run ECBS
             subprocess.call(
                 [command_file,
@@ -119,6 +129,26 @@ class ComputeECBSSolution:
     def is_target_file(self, filename):
         DATA_EXTENSIONS = ['.yaml']
         return any(filename.endswith(extension) for extension in DATA_EXTENSIONS)
+    
+    def check_file(self, file_path):
+        if not os.path.exists(file_path):
+            print(f"文件不存在: {file_path}")
+        else:
+            try:
+                with open(file_path, 'r') as file:
+                    print(f"文件可以被成功打开: {file_path}")
+            except Exception as e:
+                print(f"打开文件时出错: {file_path}. 错误信息: {str(e)}")
+
+    def check_yaml(self, file_path):
+        try:
+            with open(file_path, 'r') as file:
+                yaml.safe_load(file)
+            print(f"文件 {file_path} 是有效的YAML文件")
+        except yaml.YAMLError as e:
+            print(f"文件 {file_path} 不是有效的YAML文件. 错误信息: {str(e)}")
+
+
 
 
 

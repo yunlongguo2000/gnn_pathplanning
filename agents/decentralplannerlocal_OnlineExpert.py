@@ -252,8 +252,10 @@ class DecentralPlannerAgentLocalWithOnlineExpert(BaseAgent):
             self.current_epoch = epoch
             # TODO: Optional 1: del dataloader before train
             self.train_one_epoch()
-            self.logger.info('Train {} on Epoch {}: Learning Rate: {}]'.format(self.config.exp_name, self.current_epoch, self.scheduler.get_lr()))
-            print('Train {} on Epoch {} Learning Rate: {}'.format(self.config.exp_name, self.current_epoch, self.scheduler.get_lr()))
+            # self.logger.info('Train {} on Epoch {}: Learning Rate: {}]'.format(self.config.exp_name, self.current_epoch, self.scheduler.get_lr()))
+            self.logger.info('Train {} on Epoch {}: Learning Rate: {}]'.format(self.config.exp_name, self.current_epoch, self.scheduler.get_last_lr()))
+            # print('Train {} on Epoch {} Learning Rate: {}'.format(self.config.exp_name, self.current_epoch, self.scheduler.get_lr()))
+            print('Train {} on Epoch {} Learning Rate: {}'.format(self.config.exp_name, self.current_epoch, self.scheduler.get_last_lr()))
 
             rateReachGoal = 0.0
             if self.config.num_agents >= 10:

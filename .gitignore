@@ -1,3 +1,5 @@
-data/
+*.mat
 *.pyc
-configs/dcp_onlineExpert.json
+experiments/
+data/
+Tensorboard_CG50/
