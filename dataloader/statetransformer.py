@@ -126,7 +126,8 @@ class AgentState:
             input_step_currentAgent.append(channel_state)
             input_step.append(input_step_currentAgent)
 
-        input_tensor = torch.FloatTensor(input_step)
+        # input_tensor = torch.FloatTensor(input_step)
+        input_tensor = torch.FloatTensor(np.array(input_step))
         return input_tensor
 
 
